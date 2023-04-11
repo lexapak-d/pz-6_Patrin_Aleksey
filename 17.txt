@@ -1,0 +1,129 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Практическая_работа__17
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Выберите способ обработки данных: 1 - создание файла, 2 - обработка, 3 - просмотр");
+            int x = int.Parse(Console.ReadLine());
+            string path = @"G:\team";
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            int svoz = 0, minsvoz = 10000; string minvoz = "";
+            int y = 0;
+
+             
+
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
+            string writePath = @"G:\team.txt"; string text = "";
+            if (x == 1)
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(writePath, true, System.Text.Encoding.Default))
+                    {
+                        do
+                        {
+                            Console.WriteLine("Введите наименование страны: ");
+                            string strana = Console.ReadLine();
+                            Console.WriteLine("Введите название команды: ");
+                            string komanda = Console.ReadLine();
+                            Console.WriteLine("Введите Ф.И.О. игрока: ");
+                            string fio = Console.ReadLine();
+                            Console.WriteLine("Введите игровой номер: ");
+                            int nomer = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Введите возраст игрока: ");
+                            int vozrast = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Введите рост игрока: ");
+                            int rost = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Введите вес игрока: ");
+                            int ves = int.Parse(Console.ReadLine());
+                            text = strana + ";" + komanda + ";" + fio + ";" + nomer + ";" + vozrast + ";" + rost + ";" + ves;
+                            sw.WriteLine(text);
+                            Console.WriteLine("Для продолжения нажмите 1");
+                            y = int.Parse(Console.ReadLine());
+
+                        }
+                        while (y == 1);
+
+                    }
+                }
+                catch (Exception e)
+                { Console.WriteLine(e.Message); }
+            }
+            if (x == 2)
+            {
+                Console.WriteLine("считываем построчно");
+                string readPath = @"G:\team.txt"; string textick = "";
+                string[] itog = new string[10];
+                using (StreamReader sr = new StreamReader(readPath,
+                System.Text.Encoding.Default))
+
+                {
+                    int i = 0;
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] words1 = line.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                        string s = words1[1];
+                        while (words1[1] == s)
+                        {
+
+
+                            svoz = svoz + int.Parse(words1[4]);
+
+
+
+                            if ((line = sr.ReadLine()) != null)
+
+                                words1 = line.Split(new char[] {';'}, StringSplitOptions.RemoveEmptyEntries);
+                            if (line == null || s != words1[1]) break;
+                        }
+                        if (minsvoz > svoz)
+                        {
+                            minsvoz = svoz;
+                            minvoz = s;
+                        }
+                        itog[i] = s + ";" + svoz;
+                        Console.WriteLine(itog[i]); i++;
+                        svoz = int.Parse(words1[4]);
+
+                    }
+                    string p = @"G:\otvet.txt";
+                    using (StreamWriter sw = new StreamWriter(p, false,
+                        System.Text.Encoding.Default))
+                    {
+                        sw.WriteLine($"Самая молодая команда:{minvoz}Возраст = {minsvoz}");
+                    }
+                    Console.ReadLine();
+                }
+            
+
+
+
+
+
+
+
+
+            }
+
+            if (x == 3)
+            {
+               Console.WriteLine("данные находятся в пути G:\team.txt  ");
+                Console.ReadKey();
+            }
+        }
+    }
+}
+
+
