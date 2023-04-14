@@ -1,0 +1,10 @@
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\bin\Debug\pr20-21.exe.config
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\bin\Debug\pr20-21.exe
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\bin\Debug\pr20-21.pdb
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\obj\Debug\pr20-21.csproj.AssemblyReference.cache
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\obj\Debug\pr20_21.Form1.resources
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\obj\Debug\pr20_21.Properties.Resources.resources
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\obj\Debug\pr20-21.csproj.GenerateResource.cache
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\obj\Debug\pr20-21.csproj.CoreCompileInputs.cache
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\obj\Debug\pr20-21.exe
+G:\ПР-22.107к\Патрин Алексей\pr20-21\pr20-21\obj\Debug\pr20-21.pdb
